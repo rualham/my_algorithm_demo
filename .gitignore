@@ -1,0 +1,14 @@
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+*.iml
+/app/hash.txt
+/.repo
+/node_modules/
+/dl-output.json
+/latest-aar-version.json
+.use-latest-aar.symbol
+bot-mode.symbol
