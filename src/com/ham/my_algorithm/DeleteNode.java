@@ -28,11 +28,12 @@ public class DeleteNode {
 //        ln6.val = 6;
 //        ln7.val = 7;
 //        ln8.val = 8;
-        deleteNode(ln1, ln2);
-        while (ln1 != null) {
+        deleteNode(ln1, ln6);
+//        while (ln1 != null) {
             System.out.println(ln1.val);
-            ln1 = ln1.next;
-        }
+//            ln1 = ln1.next;
+//        }
+        System.out.println("ln8 = " + ln8);
     }
 
     public static void deleteNode(ListNode head, ListNode deListNode) {
