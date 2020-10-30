@@ -2,8 +2,10 @@ package com.ham.my_algorithm;
 
 public class MaxOfNDigits {
     public static void main(String[] args) {
+//        printToMaxOfNDigits_1(-5);
 //        printToMaxOfNDigits_1(5);
-        printToMaxOfNDigits_2(1);
+//        printToMaxOfNDigits_3(5);
+        printToMaxOfNDigits_2(5);
     }
 
 
@@ -29,7 +31,10 @@ public class MaxOfNDigits {
         char number[] = new char[n];
         for (int i = 0; i < number.length; i++) {//对字符0进行初始化
             number[i] = '0';
+//            int a = number[i];
+//            System.out.println("number[i]  = " + number[i] +"  a:"+ a);
         }
+
         while (!incrementNumber(number)) {//如果大数自加，直到自溢退出
             printNumber(number);
         }
@@ -61,6 +66,35 @@ public class MaxOfNDigits {
         return isOverflow;
 
     }
+
+    //打印1到最大的n位数的主方法
+    public static void printToMaxOfNDigits_3(int n) {
+        if (n <= 0) {
+            System.out.println("输入的n没有意义");
+            return;
+        }
+        char number[] = new char[n];
+        for (int i = 0; i < number.length; i++) {
+            number[i] = '0';
+        }
+        for (int i = 0; i < 10; ++i) {
+            number[0] = (char) (i + '0');
+            printToMaxOfNDigitsRecursively(number, n, 0);
+        }
+    }
+
+    //利用递归实现1到最大的n位数的全排列
+    public static void printToMaxOfNDigitsRecursively(char[] number, int n, int index) {
+        if (index == n - 1) {
+            printNumber(number);
+            return;
+        }
+        for (int i = 0; i < 10; ++i) {
+            number[index + 1] = (char) (i + '0');
+            printToMaxOfNDigitsRecursively(number, n, index + 1);
+        }
+    }
+
 
     //打印数字
     private static void printNumber(char[] number) {
