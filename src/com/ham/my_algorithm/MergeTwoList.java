@@ -13,11 +13,15 @@ public class MergeTwoList {
         curr2.next = curr3;
         curr3.next = curr4;
         curr4.next = null;
-        mergeTwoLists1(listNode, curr1);
-        mergeTwoLists2(listNode, curr1);
+//        ListNode listNode1 = mergeTwoLists1(listNode, curr1);
+        ListNode listNode2 = mergeTwoLists2(listNode, curr1);
+        System.out.println("listNode2 = " + listNode2);
     }
 
-    public static ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+    //    public static ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+    public static ListNode mergeTwoLists1(ListNode list3, ListNode list4) {
+        ListNode list1 = list3;
+        ListNode list2 = list4;
         if (list1 == null) {
             return list2;
         }

@@ -5,6 +5,7 @@ public class ReverseList {
     public static void main(String[] args) {
         ListNode listNode = GetMyListNode.getListNode();
         reverseList(listNode);
+        System.out.println("listNode = " + listNode);
     }
 
     private static ListNode reverseList(ListNode head) {
