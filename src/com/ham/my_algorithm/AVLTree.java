@@ -20,6 +20,7 @@ public class AVLTree {
 
         public static void main(String[] args) {
             Math.pow(2, 5);
+
             Node root = null;
             root = insert(root, 30);
             root = insert(root, 20);
