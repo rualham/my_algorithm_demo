@@ -2,10 +2,11 @@ package com.ham.my_algorithm;
 
 import java.util.Arrays;
 
-//对3排序
+//堆排序
 public class HeapSort {
     public static void main(String[] args) {
-        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+//        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] arr = {2, 8, 9, 6, 5, 3, 4, 7, 1};
         sort(arr);
         System.out.println("arr = " + Arrays.toString(arr));
     }
@@ -34,7 +35,7 @@ public class HeapSort {
 
     public static void adjustHeap(int[] arr, int i, int length) {
         int temp = arr[i];//先取出当前元素i
-        for (int k = i * 2 + 1; i < length; k = k * 2 + 1) {////从i结点的左子结点开始，也就是2i+1处开始
+        for (int k = i * 2 + 1; k < length; k = k * 2 + 1) {////从i结点的左子结点开始，也就是2i+1处开始
             if (k + 1 < length && arr[k] < arr[k + 1]) {
                 k++;
             }
