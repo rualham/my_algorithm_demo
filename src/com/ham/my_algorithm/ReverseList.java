@@ -4,8 +4,8 @@ public class ReverseList {
 
     public static void main(String[] args) {
         ListNode listNode = GetMyListNode.getListNode();
-        reverseList(listNode);
         System.out.println("listNode = " + listNode);
+        System.out.println("listNode = " + reverseList(listNode));
     }
 
     private static ListNode reverseList(ListNode head) {
