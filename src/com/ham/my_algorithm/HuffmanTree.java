@@ -1,5 +1,6 @@
 package com.ham.my_algorithm;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class HuffmanTree {
     }
 
     public static void main(String[] args) {
+        sort(new int[]{4, 1, 5, 6, 8, 7, 9});
         List<Node> nodes = new ArrayList<>();
         //把节点加入至list中
         nodes.add(new Node("a", 10));
@@ -97,18 +99,19 @@ public class HuffmanTree {
         return;
     }
 
-    /*//自己写一个冒泡排序，写完后下去溜会弯
-    public static void sort(int[] array) {
-        if (array.length <= 1) return;
-        *//*循环数组长度的次数*//*
-        for (int i = 0; i < array.length-1; i++) {
-            for (int j = 0; j < array.length - 1 - i; j++) {
-                if (array[j + 1] < array[j]) {
-                    int temp = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = temp;
+    public static void sort(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length - i - 1; j++) {
+                if (a[j] > a[j + 1]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
                 }
             }
         }
-    }*/
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("i = " + a[i]);
+
+        }
+    }
 }
