@@ -14,8 +14,8 @@ public class BinarySort {
     public static int myBinarySearch(int[] arr, int value) {
         int low = 0;
         int heigh = arr.length - 1;
-        while (low < heigh) {
-            int mid = (low + heigh);
+        while (low <= heigh) {
+            int mid = (low + heigh)/2;
             if (value == arr[mid]) return mid;
             if (value > arr[mid]) low = mid + 1;
             if (value < arr[mid]) heigh = mid - 1;
