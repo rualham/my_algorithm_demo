@@ -17,6 +17,7 @@ public class TwoSum {
 //        System.out.println("  = " +returnnum1(arr, 20)  );
         System.out.println("  = " + hashsum(arr1, 10));
 //        System.out.println("  = " + calculatTwoSumAll(arr1, 10));
+//        System.out.println("  = " + calculatTwoSumAll(arr1, 10));
     }
 
     public static void twosum(int arr[], int target) {
@@ -93,17 +94,18 @@ public class TwoSum {
     }
 
     public static int[] hashsum(int arr[], int target) {
-        int temp[] = new int[2];
-        HashMap<Integer, Integer> map = new HashMap<>();
+        int[] temp = new int[2];
+        Map<Integer, Integer> map = new HashMap();
         for (int i = 0; i < arr.length; i++) {
             map.put(arr[i], i);
         }
         for (int i = 0; i < arr.length; i++) {
-            int other = target - arr[i];
-            if (map.containsKey(other)) {
+            int currentKey = target - arr[i];
+            if (map.containsKey(currentKey)) {
                 temp[0] = i;
-                temp[1] = map.get(other);
-                break;
+                temp[1] = map.get(currentKey);
+                System.out.println(arr[i] + "+" + currentKey + "=" + target);
+                System.out.println("第一个下标为：" + i + "第二个下标为：" + map.get(currentKey));
             }
         }
         return temp;

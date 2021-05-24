@@ -3,7 +3,7 @@ package com.ham.my_algorithm;
 public class SelectionSort {
     public static void main(String[] args) {
         //选择排序
-        int[] arr = {1, 3, 2, 45, 65, 33, 12};
+        int[] arr = {4, 11, 3, 2, 45, 65, 3, 12};
         System.out.println("交换之前 ： ");
         for (int i : arr) {
             System.out.println("i = " + i);
