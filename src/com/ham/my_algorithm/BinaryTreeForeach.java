@@ -7,7 +7,6 @@ import java.util.Stack;
 
 public class BinaryTreeForeach {
 
-
     public static void main(String[] args) {
         BinaryTreeForeach tree = new BinaryTreeForeach();
         int[] datas = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
