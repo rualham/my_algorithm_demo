@@ -17,7 +17,7 @@ public class PrintListFromTailToHead {
 
     public static void main(String[] args) {
         TreeNode listNode1 = reConstructBinaryTree(new int[]{3, 9, 20, 15, 7}, new int[]{9, 3, 15, 20, 7});
-        TreeNode treeNode = reConstructBinaryTree(new int[]{1, 2, 4, 7, 3, 5, 6, 8}, new int[]{4, 7, 2, 1, 5, 3, 8, 6});
+//        TreeNode treeNode = reConstructBinaryTree(new int[]{1, 2, 4, 7, 3, 5, 6, 8}, new int[]{4, 7, 2, 1, 5, 3, 8, 6});
 //        ListNode listNode2 = GetMyListNode.getListNode();
 //        ArrayList<Integer> arrayList = printListFromTailToHead(listNode);
 //        printListFromTailToHead(listNode);
@@ -29,7 +29,6 @@ public class PrintListFromTailToHead {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static void printListFromTailToHead(ListNode listNode) {
@@ -64,7 +63,35 @@ public class PrintListFromTailToHead {
 //        return out.pop();
     }
 
-/*    public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
+    public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
+        //由于重建二叉树的过程会用到很多边界值，所以题目所给的方法的参数是不够用的
+        //所以，在下面重载了这个方法，每次传入前序和中序序列以及起始位置
+        TreeNode root = reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
+        return root;
+    }
+
+    private static TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
+        //这里是判断结束的标志，由于是递归算法，我们不可能一直执行下去，所以需要结束标志
+        //下面这两种情况发生一个就会结束
+        if (startPre > endPre || startIn > endIn) {
+            return null;
+        }
+        //首先找到根节点
+        TreeNode root = new TreeNode(pre[startPre]);
+        //对中序遍历进行查找根节点
+        for (int i = startIn; i <= endIn; i++) {
+            //找到之后，分别对左子树和右子树进行递归算法，重复此步骤
+            if (in[i] == pre[startPre]) {
+                //重建二叉树的关键就是找到其中的边界值，边界值在图中已经做了描述
+                root.left = reConstructBinaryTree(pre, startPre + 1, startPre + i - startIn, in, startIn, i - 1);
+                root.right = reConstructBinaryTree(pre, startPre + i - startIn + 1, endPre, in, i + 1, endIn);
+                break;
+            }
+        }
+        return root;
+    }
+
+ /*  public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         for (int i = 0; i < in.length; i++)
             indexForInOrders.put(in[i], i);
         return reConstructBinaryTree(pre, 0, pre.length - 1, 0);
