@@ -4,11 +4,15 @@ public class MySort {
     //    最小的K个数
     public static void main(String[] args) {
         int arr[] = new int[]{8, 7, 9, 6, 2, 1, 5, 4};
-        sort(arr);
+//        sort(arr);
         for (int i = 0; i < arr.length; i++) {
-            System.out.println("a[i] = " + arr[i]);
+//            System.out.println("a[i] = " + arr[i]);
         }
-        quickSort(arr, 0, arr.length - 1);
+//        quickSort(arr, 0, arr.length - 1);
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.println("quickSort a[i] = " + arr[i]);
+//        }
+        insertionSort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println("quickSort a[i] = " + arr[i]);
         }
@@ -58,5 +62,35 @@ public class MySort {
         // 递归，继续向基准的左右两边执行和上面同样的操作
         quickSort(arr, left, i - 1);
         quickSort(arr, i + 1, right);
+    }
+
+    /**
+     * 插入排序
+     * @param array
+     * @return
+     */
+    public static int[] insertionSort(int[] array) {
+        int len;
+        // 基本情况下的数组可以直接返回
+        if(array == null || (len = array.length) == 0 || len == 1) {
+            return array;
+        }
+        int current;
+        for (int i = 0; i < len - 1; i++) {
+            // 第一个数默认已排序，从第二个数开始
+            current = array[i + 1];
+            // 前一个数的下标
+            int preIdx = i;
+
+            // 拿当前的数与之前已排序序列逐一往前比较，
+            // 如果比较的数据比当前的大，就把该数往后挪一步
+            while (preIdx >= 0 && current < array[preIdx]) {
+                array[preIdx + 1] = array[preIdx];
+                preIdx--;
+            }
+            // while循环跳出说明找到了位置
+            array[preIdx + 1] = current;
+        }
+        return array;
     }
 }
