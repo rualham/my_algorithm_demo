@@ -4,20 +4,26 @@ public class MySort {
     //    最小的K个数
     public static void main(String[] args) {
         int arr[] = new int[]{8, 7, 9, 6, 2, 1, 5, 4};
-//        sort(arr);
+    /*    sort(arr);
         for (int i = 0; i < arr.length; i++) {
+            System.out.println("a[i] = " + arr[i]);
+        }*/
+//        quickSort(arr, 0, arr.length - 1);
 //            System.out.println("a[i] = " + arr[i]);
-        }
+//        }
 //        quickSort(arr, 0, arr.length - 1);
 //        for (int i = 0; i < arr.length; i++) {
 //            System.out.println("quickSort a[i] = " + arr[i]);
 //        }
-        insertionSort(arr);
+//        sort(arr);
+//        insertionSort(arr);
+        insertionSort1(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println("quickSort a[i] = " + arr[i]);
         }
     }
 
+    //冒泡排序
     private static int[] sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < a.length; j++) {
@@ -64,15 +70,45 @@ public class MySort {
         quickSort(arr, i + 1, right);
     }
 
+
     /**
      * 插入排序
+     *
+     * @param array
+     * @return
+     */
+    public static int[] insertionSort1(int[] array) {
+        int len;
+        // 基本情况下的数组可以直接返回
+        if (array == null || (len = array.length) == 0 || len == 1) {
+            return array;
+        }
+        int current = 0;
+        int preIndex = 0;
+
+        for (int i = 0; i < array.length-1; i++) {
+            current = array[i + 1];
+            preIndex = i;
+            while (preIndex >= 0 && current < array[preIndex]) {
+                array[preIndex + 1] = array[preIndex];
+                preIndex--;
+            }
+            array[preIndex + 1] = current;
+        }
+        return array;
+    }
+
+
+    /**
+     * 插入排序
+     *
      * @param array
      * @return
      */
     public static int[] insertionSort(int[] array) {
         int len;
         // 基本情况下的数组可以直接返回
-        if(array == null || (len = array.length) == 0 || len == 1) {
+        if (array == null || (len = array.length) == 0 || len == 1) {
             return array;
         }
         int current;
