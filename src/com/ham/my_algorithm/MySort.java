@@ -85,15 +85,15 @@ public class MySort {
         }
         int current = 0;
         int preIndex = 0;
-
         for (int i = 0; i < array.length-1; i++) {
-            current = array[i + 1];
             preIndex = i;
+            current = array[i + 1];
+//            while (preIndex >= 0 && current < array[i]) {
             while (preIndex >= 0 && current < array[preIndex]) {
                 array[preIndex + 1] = array[preIndex];
                 preIndex--;
             }
-            array[preIndex + 1] = current;
+            array[preIndex+1] = current;
         }
         return array;
     }
