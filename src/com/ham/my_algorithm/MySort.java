@@ -3,7 +3,7 @@ package com.ham.my_algorithm;
 public class MySort {
     //    最小的K个数
     public static void main(String[] args) {
-        int arr[] = new int[]{8, 7, 9, 6, 2, 1, 5, 4};
+        int arr[] = new int[]{8, 0, 12, 7, 9, 6, 2, 1, 5, 4, 11};
     /*    sort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println("a[i] = " + arr[i]);
@@ -16,8 +16,10 @@ public class MySort {
 //            System.out.println("quickSort a[i] = " + arr[i]);
 //        }
 //        sort(arr);
+        selectSort(arr);
+//        selectSortOp(arr);
 //        insertionSort(arr);
-        insertionSort1(arr);
+//        insertionSort1(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println("quickSort a[i] = " + arr[i]);
         }
@@ -25,7 +27,21 @@ public class MySort {
 
     //冒泡排序
     private static int[] sort(int[] a) {
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = 0; j < a.length - 1 - i; j++) {
+                if (a[j + 1] < a[j]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+        return a;
+    }
+
+    //选择排序
+    private static int[] selectSort(int[] a) {
+        for (int i = 0; i < a.length - 1; i++) {
             for (int j = i + 1; j < a.length; j++) {
                 if (a[j] < a[i]) {
                     int temp = a[i];
@@ -36,6 +52,28 @@ public class MySort {
         }
         return a;
     }
+
+    private static int[] selectSortOp(int[] arr) {
+        //选择排序的优化
+        for (int i = 0; i < arr.length - 1; i++) {// 做第i趟排序
+            int k = i;
+            for (int j = k + 1; j < arr.length; j++) {// 选最小的记录
+                if (arr[j] < arr[k]) {
+                    k = j; //记下目前找到的最小值所在的位置
+                }
+            }
+            //在内层循环结束，也就是找到本轮循环的最小的数以后，再进行交换
+            if (i != k) {  //交换a[i]和a[k]
+                int temp = arr[i];
+                arr[i] = arr[k];
+                arr[k] = temp;
+            }
+        }
+        return arr;
+    }
+
+//    8,7,9,6,2,1,5,4
+//            7,8,9,6,2,1,5,4
 
     public static void quickSort(int[] arr, int left, int right) {
         if (left > right) {
@@ -85,10 +123,10 @@ public class MySort {
         }
         int current = 0;
         int preIndex = 0;
-
-        for (int i = 0; i < array.length-1; i++) {
-            current = array[i + 1];
+        for (int i = 0; i < array.length - 1; i++) {
             preIndex = i;
+            current = array[i + 1];
+//            while (preIndex >= 0 && current < array[i]) {
             while (preIndex >= 0 && current < array[preIndex]) {
                 array[preIndex + 1] = array[preIndex];
                 preIndex--;
