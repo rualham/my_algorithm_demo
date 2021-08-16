@@ -1,4 +1,4 @@
-package com.ham.my_algorithm.stringdemo;
+package com.ham.my_algorithm;
 
 public class MergeArray {
     public static void main(String[] args) {
