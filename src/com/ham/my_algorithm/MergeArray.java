@@ -4,8 +4,38 @@ public class MergeArray {
     public static void main(String[] args) {
         int[] b = {1, 2, 3, 5};
         int[] a = {2, 3, 4, 6, 7};
-        mergeArr(a, b, 5, 4);
+//        mergeArr(a, b, 5, 4);
+        mergeArr1(a, b, 5, 4);
+
+
     }
+
+    private static void mergeArr1(int[] a, int[] b, int i, int j) {
+
+        int[] newArr = new int[i + j];
+
+        int count = 0, c = 0, d = 0;
+        while (c < i && d < j) {
+            if (a[c] < b[d]) {
+                newArr[count++] = a[c++];
+            } else {
+                newArr[count++] = b[d++];
+            }
+
+        }
+        if (c>=i){
+            while (d < j) {
+                newArr[count++] = b[d++];
+            }
+        }
+        if (d >= j){
+            while (c < i ) {
+                newArr[count++] = a[c++];
+            }
+        }
+
+    }
+
 
     private static void mergeArr(int[] before, int[] after, int m, int n) {
         int[] newArr = new int[m + n];
