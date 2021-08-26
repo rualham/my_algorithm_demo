@@ -18,7 +18,7 @@ public class OutClass1 {
     public class InnerClass2 {
         public int iid;
         public String iname;
-        public static String name;
+//        public static String name;
 
         public void mainw(String[] args) {
             oname = "1";
