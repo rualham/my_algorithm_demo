@@ -30,6 +30,7 @@ public class IClass implements ICanImplete{
 
     public static void main(String[] args) {
         ICanImplete i =new IClass();
+        i.a="2";
         i.sayHello();
     }
 }
