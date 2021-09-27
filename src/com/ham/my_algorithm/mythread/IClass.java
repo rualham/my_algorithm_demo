@@ -22,4 +22,14 @@ public class IClass implements ICanImplete{
     public void d() {
 
     }
+
+    @Override
+    public void sayHello() {
+
+    }
+
+    public static void main(String[] args) {
+        ICanImplete i =new IClass();
+        i.sayHello();
+    }
 }
