@@ -2,7 +2,7 @@ package com.ham.my_algorithm.mythread;
 
 public interface ICanImplete {
 
-    String a = "3";
+    String ab = "3";
 
    public void a();
     void b();
